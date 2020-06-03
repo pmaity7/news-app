@@ -3,6 +3,7 @@ Fast News Web Application
 Functionalities:
 
 1) Homepage with Name, Launch date and description of app. Anonymous User can Login or register. Navigation bar has home, news and contact us link.
+![](images/1.png)
 Any User that is not logged in cannot view news, login required for viewing news.
 
 
@@ -136,7 +137,7 @@ News page for Normal user
 
 
 
-Admin’s home page 
+Adminâ€™s home page 
 
 
 
