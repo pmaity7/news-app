@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron text-center">
+    <div class="container">
+      <h1 class="display-3">Welcome to Fastnews app</h1>
+      <h3 class="display-6">Launch date: 30th May 2020</h3>
+      <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+      {% if current_user.is_anonymous %}
+        <a href="{{ url_for('login') }}" class="btn btn-primary btn-lg" role="button"><i class="fa fa-sign-in" aria-hidden="true"></i> Login &raquo;</a>
+      {% else %}
+        <a href="{{ url_for('logout') }}" class="btn btn-danger btn-lg" role="button"><i class="fa fa-sign-in" aria-hidden="true"></i> Logout &raquo;</a>
+      {% endif %}
+        <a href="{{ url_for('register') }}" class="btn btn-warning btn-lg" role="button"><i class="fa fa-registered" aria-hidden="true"></i> Register &raquo;</a>
+      {% if current_user.username == 'admin' %}
+        <a href="{{ url_for('users') }}" class="btn btn-primary btn-lg" role="button"><i class="fa fa-users" aria-hidden="true"></i> View Users &raquo;</a>
+      {% endif %}
+      
+    </div>
+</div>
+{% if current_user.is_anonymous %}
+{% else %}
+<div class="container text-center text-dark"> <h1>Welcome {{ current_user.username }}</h1></div>
+{% endif %}
+{% endblock content %}

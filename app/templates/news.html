@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+    <a href="{{ url_for('add_news') }}" class="btn btn-info btn-block btn-lg text-white"><i class="fa fa-plus-square" aria-hidden="true"></i> Add news </a>
+    <br>
+    {% for post in posts %}
+    <div class="card border-dark mb-3" style="max-width: 200rem;">
+        <div class="card-header border-dark" style="background-color: lightgray;">
+            <h2>{{ post.title }}</h2>
+        </div>
+        <div class="card-body text-dark">
+            <p>{{ post.body }}</p>
+            <p>{{ post.user_id }}</p>
+            <p>{{ post.timestamp }}</p>
+            <a class="btn btn-warning text-light"><i class="fa fa-share-alt" aria-hidden="true"></i> Share </a>
+            {% if current_user.username == 'admin' %}
+                <a href="{{ url_for('edit', title=post.title) }}" class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i> Edit </a>
+                <a href="{{ url_for('delete', title=post.title) }}" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Delete </a>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+{% endblock content %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="text-dark text-center">Registered Users</h1>
+<hr>
+<table class="table table-light table-striped table-bordered " style="margin: auto;">
+    <tr>
+        <th scope="col">Username</th>
+        <th scope="col">Email</th>
+    </tr>
+    {% for user in users %}
+    <tr>
+        <td scope="row">{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
